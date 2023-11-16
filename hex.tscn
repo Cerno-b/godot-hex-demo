@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1gn6iakb271c"]
+
+[ext_resource type="Texture2D" uid="uid://cghyctp1tmif" path="res://images/hex_disabled.png" id="1_fsujp"]
+[ext_resource type="Script" path="res://hex.gd" id="1_gkttk"]
+[ext_resource type="Texture2D" uid="uid://blmt4wrgtwa8l" path="res://images/hex.png" id="1_l5a15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrsr4"]
+radius = 17.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1aw2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fsujp")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l5a15")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="Hex" type="Area2D"]
+script = ExtResource("1_gkttk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yrsr4")
+
+[node name="HexSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1aw2l")
+animation = &"inactive"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

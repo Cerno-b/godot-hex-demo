@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4cpk2n3updk7"]
+
+[ext_resource type="Script" path="res://play_area.gd" id="1_gcftd"]
+[ext_resource type="PackedScene" uid="uid://c1gn6iakb271c" path="res://hex.tscn" id="2_n8hqt"]
+
+[node name="PlayArea" type="Node2D"]
+script = ExtResource("1_gcftd")
+Hex = ExtResource("2_n8hqt")
